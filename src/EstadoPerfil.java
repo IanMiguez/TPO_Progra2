@@ -1,5 +1,4 @@
 public class EstadoPerfil {
-
     private String nombre;
     private String profesion;
 

@@ -70,5 +70,28 @@ public class Diccionario<K, V> {
         return false;
     }
 
+    public boolean eliminar(K clave) {
+
+        for (int i = 0; i < elementos.cantidadElementos(); i++) {
+
+            Entrada<K, V> entrada = elementos.obtener(i);
+
+            if (entrada.getClave().equals(clave)) {
+                elementos.eliminar(i);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void mostrar() {
+
+        if (estaVacio()) {
+            System.out.println("Diccionario vacio");
+        } else {
+            elementos.mostrar();
+        }
+    }
 
 }

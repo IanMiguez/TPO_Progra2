@@ -1,4 +1,4 @@
-Sistema de Red Social Profesional (RSP) 
+# Sistema de Red Social Profesional (RSP) 
 
 Integrantes:
  -  Maximo Zaragoza

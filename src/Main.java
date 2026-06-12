@@ -6,7 +6,25 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // Funcionalidad / Métodos
+        RedProfesional red = new RedProfesional();
 
+        red.registrarUsuario(
+                new Perfil(1,"Ian Miguez","Programador")
+        );
+
+        red.registrarUsuario(
+                new Perfil(2,"Maximo Zaragoza","Diseñador de Moda")
+        );
+
+        System.out.println(
+                red.buscarUsuario(1)
+        );
+
+        red.mostrarUsuarios();
+
+
+        // Prueba de implementaciones
         System.out.println("===== COLA CIRCULAR (FIFO) =====");
         ColaCircular<String> postulaciones = new ColaCircular<>(3);
 

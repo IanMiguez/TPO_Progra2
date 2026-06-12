@@ -7,6 +7,15 @@ Integrantes:
 Alternativa Elegida:
  - A) Ecosistema de Red Social Profesional
 
+Estructura de Datos:
+  -
+
+ Funcionalidades Implementadas en esta Segunda Etapa:
+  - https://github.com/IanMiguez/TPO_Progra2
+
+Link del Repositorio:
+ 
+ 
 Basado en linkedin de una forma simplificada donde:
  - Hay profesionales
  - Usuarios se conectan entre si

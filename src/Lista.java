@@ -93,8 +93,6 @@ public class Lista<T> {
         actual.setDato(dato);
     }
 
-    // eliminar el nodo que está en una posición dada
-    // (sigue la lógica de eliminar de clase5: caso cabeza y caso recorriendo)
     public void eliminar(int posicion) {
 
         if (posicion < 0 || posicion >= cantidad) {

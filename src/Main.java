@@ -1,4 +1,7 @@
-// pruebas cola y pila
+// Pruebas de los modulos implementados:
+//   - Cola circular (postulaciones por orden de llegada)
+//   - Pila (deshacer la ultima actualizacion del perfil)
+//   - Diccionario (identificar/recuperar un perfil por su ID)
 public class Main {
 
     public static void main(String[] args) {
@@ -28,20 +31,24 @@ public class Main {
         System.out.println("Cantidad final: " + postulaciones.tamaño());
 
 
-        System.out.println("\n===== PILA (LIFO) =====");
-        Pila<String> cambios = new Pila<>(5);
+        System.out.println("\n===== PILA: deshacer cambios del perfil (LIFO) =====");
+        Perfil perfil = new Perfil(10, "Juan", "Estudiante");
+        Pila<EstadoPerfil> historial = new Pila<>(10);
+        System.out.println("Perfil inicial:      " + perfil);
 
-        cambios.apilar("nombre: Juan");
-        cambios.apilar("profesión: Estudiante");
-        cambios.apilar("profesión: Programador");
+        // Antes de cada cambio, guardamos el estado anterior en la pila
+        historial.apilar(new EstadoPerfil(perfil.getNombre(), perfil.getProfesion()));
+        perfil.setProfesion("Programador Junior");
+        System.out.println("Tras cambio 1:       " + perfil);
 
-        System.out.println("Tope (sin sacar): " + cambios.verTope());
-        System.out.println("Cantidad: " + cambios.tamaño());
+        historial.apilar(new EstadoPerfil(perfil.getNombre(), perfil.getProfesion()));
+        perfil.setProfesion("Programador Senior");
+        System.out.println("Tras cambio 2:       " + perfil);
 
-        System.out.println("Deshacer: " + cambios.desapilar());
-        System.out.println("Deshacer: " + cambios.desapilar());
-        System.out.println("Deshacer: " + cambios.desapilar());
-        System.out.println("Deshacer: " + cambios.desapilar());
+        EstadoPerfil anterior = historial.desapilar();
+        perfil.setNombre(anterior.getNombre());
+        perfil.setProfesion(anterior.getProfesion());
+        System.out.println("Despues de deshacer: " + perfil);
 
 
         System.out.println("\n===== DICCIONARIO (perfil por ID) =====");

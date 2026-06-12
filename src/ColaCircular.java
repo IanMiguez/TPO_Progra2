@@ -40,7 +40,6 @@ public class ColaCircular<T> {
         return true;
     }
 
-    // revisar
     public T desencolar() {
         if (estaVacia()) {
             System.out.println("Error: cola vacía");
@@ -58,7 +57,6 @@ public class ColaCircular<T> {
         return eliminado;
     }
 
-    // revisar
     public T verFrente() {
         if (estaVacia()) {
             System.out.println("Error: cola vacía");

@@ -30,8 +30,8 @@
 - Edición de cambios en perfil
 
 ## Actividades Realizadas por cada Integrante:
-- Ian Miguez:
+### - Ian Miguez:
     - Clases: Perfil, Estado Perfil, Lista, Diccionario.
 
-- Maximo Zaragoza:
+### - Maximo Zaragoza:
     - Clases: Nodo, Cola Circular, Pila, Main.

@@ -1,6 +1,6 @@
 # Sistema de Red Social Profesional (RSP)
 
-##Integrantes:
+## Integrantes:
 -  Maximo Zaragoza
 -  Ian Miguez
 

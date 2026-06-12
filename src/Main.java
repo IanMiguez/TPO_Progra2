@@ -51,18 +51,15 @@ public class Main {
         perfiles.insertar(2, new Perfil(2, "Bruno", "Diseñador"));
         perfiles.insertar(3, new Perfil(3, "Carla", "Contadora"));
 
-        // ID duplicado: debe rechazarlo (robustez que pide la consigna)
         boolean ok = perfiles.insertar(1, new Perfil(1, "Otro", "Otra"));
         System.out.println("Insertar ID 1 de nuevo (esperado false): " + ok);
 
         System.out.println("Buscar ID 2: " + perfiles.buscar(2));
         System.out.println("Cantidad: " + perfiles.tamanio());
 
-        // Modificar el perfil de ID 3
         perfiles.modificar(3, new Perfil(3, "Carla", "Contadora Senior"));
         System.out.println("ID 3 modificado: " + perfiles.buscar(3));
 
-        // Eliminar ID 2
         perfiles.eliminar(2);
         System.out.println("Buscar ID 2 tras eliminar (esperado null): " + perfiles.buscar(2));
 

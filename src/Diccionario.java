@@ -10,7 +10,7 @@ public class Diccionario<K, V> {
         return elementos.estaVacia();
     }
 
-    public int tamanio() {
+    public int tamaño() {
         return elementos.cantidadElementos();
     }
 

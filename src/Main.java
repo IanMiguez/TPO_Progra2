@@ -139,7 +139,7 @@ public class Main {
         System.out.println("Insertar ID 1 de nuevo (esperado false): " + ok);
 
         System.out.println("Buscar ID 2: " + perfiles.buscar(2));
-        System.out.println("Cantidad: " + perfiles.tamanio());
+        System.out.println("Cantidad: " + perfiles.tamaño());
 
         perfiles.modificar(3, new Perfil(3, "Carla", "Contadora Senior"));
         System.out.println("ID 3 modificado: " + perfiles.buscar(3));

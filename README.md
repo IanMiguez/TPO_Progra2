@@ -25,5 +25,7 @@ Estructura de Datos:
 
 Actividades Realizadas por cada Integrante:
  - Ian Miguez:
+   - Clases: Perfil, Estado Perfil, Lista, Diccionario.
 
  - Maximo Zaragoza:
+   - Clases: Nodo, Cola Circular, Pila, Main.

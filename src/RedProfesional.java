@@ -13,4 +13,19 @@ public class RedProfesional {
                 perfil
         );
     }
+
+    public Perfil buscarUsuario(int id) {
+
+        return usuarios.buscar(id);
+    }
+
+    public boolean eliminarUsuario(int id) {
+
+        return usuarios.eliminar(id);
+    }
+
+    public void mostrarUsuarios() {
+
+        usuarios.mostrar();
+    }
 }

@@ -28,3 +28,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Contexto personal de trabajo (NO se sube al repo del grupo) ###
+_contexto/
+CLAUDE.md

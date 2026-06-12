@@ -22,6 +22,7 @@ public class Perfil {
         return profesion;
     }
 
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

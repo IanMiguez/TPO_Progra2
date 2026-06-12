@@ -22,3 +22,8 @@ Estructura de Datos:
  - Usuarios se conectan entre si
  - Postulación a empleos
  - Edición de cambios en perfil
+
+Actividades Realizadas por cada Integrante:
+ - Ian Miguez:
+
+ - Maximo Zaragoza:

@@ -13,11 +13,11 @@ Estructura de Datos:
  Funcionalidades Implementadas en esta Segunda Etapa:
   - 
 
-Link del Repositorio:
+## Link del Repositorio:
  - https://github.com/IanMiguez/TPO_Progra2
  
  
-Basado en linkedin de una forma simplificada donde:
+## Basado en linkedin de una forma simplificada donde:
  - Hay profesionales
  - Usuarios se conectan entre si
  - Postulación a empleos

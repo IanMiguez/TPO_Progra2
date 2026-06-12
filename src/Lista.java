@@ -78,4 +78,18 @@ public class Lista<T> {
             actual = actual.getSiguiente();
         }
     }
+    public void reemplazar(int posicion, T dato) {
+
+        if (posicion < 0 || posicion >= cantidad) {
+            return;
+        }
+
+        Nodo<T> actual = inicio;
+
+        for (int i = 0; i < posicion; i++) {
+            actual = actual.getSiguiente();
+        }
+
+        actual.setDato(dato);
+    }
 }

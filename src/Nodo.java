@@ -16,6 +16,7 @@ public class Nodo<T> {
         this.dato = dato;
     }
 
+
     public Nodo<T> getSiguiente() {
         return siguiente;
     }

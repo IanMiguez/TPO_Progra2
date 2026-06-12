@@ -1,5 +1,4 @@
 public class Pila<T> {
-
     private Object[] datos;
     private int tope;
     private int max;

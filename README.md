@@ -32,6 +32,8 @@
 ## Actividades Realizadas por cada Integrante:
 ### - Ian Miguez:
     - Clases: Perfil, Estado Perfil, Lista, Diccionario.
+    - RedProfesional: Métodos de Gestión de Usuarios
 
 ### - Maximo Zaragoza:
-    - Clases: Nodo, Cola Circular, Pila, Main.
+    - Clases: Nodo, Cola Circular, Pila, Main, Casos de Prueba.
+    - RedProfesional: 

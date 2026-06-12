@@ -1,19 +1,19 @@
 # Sistema de Red Social Profesional (RSP)
 
-Integrantes:
+##Integrantes:
 -  Maximo Zaragoza
 -  Ian Miguez
 
-Alternativa Elegida:
+##Alternativa Elegida:
 - A) Ecosistema de Red Social Profesional
 
-Estructura de Datos:
+##Estructura de Datos:
 - Diccionario (sobre lista enlazada de pares clave-valor)
 - Lista enlazada simple
 - Pila (LIFO, arreglo)
 - Cola Circular (FIFO, arreglo)
 
-Funcionalidades Implementadas en esta Segunda Etapa:
+##Funcionalidades Implementadas en esta Segunda Etapa:
 - Identificación de perfil por ID con Diccionario
 - Gestión de postulaciones por orden de llegada con Cola Circular
 - Deshacer la última actualización del perfil con Pila
@@ -29,7 +29,7 @@ Funcionalidades Implementadas en esta Segunda Etapa:
 - Postulación a empleos
 - Edición de cambios en perfil
 
-Actividades Realizadas por cada Integrante:
+##Actividades Realizadas por cada Integrante:
 - Ian Miguez:
     - Clases: Perfil, Estado Perfil, Lista, Diccionario.
 

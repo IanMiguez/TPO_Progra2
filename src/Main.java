@@ -1,12 +1,7 @@
-// Pruebas de los modulos implementados:
-//   - Cola circular (postulaciones por orden de llegada)
-//   - Pila (deshacer la ultima actualizacion del perfil)
-//   - Diccionario (identificar/recuperar un perfil por su ID)
 public class Main {
 
     public static void main(String[] args) {
 
-        // Funcionalidad / Métodos
         RedProfesional red = new RedProfesional();
 
         red.registrarUsuario(
@@ -24,7 +19,6 @@ public class Main {
         red.mostrarUsuarios();
 
 
-        // Prueba de implementaciones
         System.out.println("===== COLA CIRCULAR (FIFO) =====");
         ColaCircular<String> postulaciones = new ColaCircular<>(3);
 
@@ -54,7 +48,6 @@ public class Main {
         Pila<EstadoPerfil> historial = new Pila<>(10);
         System.out.println("Perfil inicial:      " + perfil);
 
-        // Antes de cada cambio, guardamos el estado anterior en la pila
         historial.apilar(new EstadoPerfil(perfil.getNombre(), perfil.getProfesion()));
         perfil.setProfesion("Programador Junior");
         System.out.println("Tras cambio 1:       " + perfil);
@@ -149,5 +142,34 @@ public class Main {
 
         System.out.println("Perfiles actuales:");
         perfiles.mostrar();
+
+        System.out.println("\n===== GRAFO (red de contactos) =====");
+        Grafo red2 = new Grafo();
+
+        red2.agregarVertice(new Perfil(1, "Ana", "Ingeniera"));
+        red2.agregarVertice(new Perfil(2, "Bruno", "Diseñador"));
+        red2.agregarVertice(new Perfil(3, "Carla", "Contadora"));
+        red2.agregarVertice(new Perfil(4, "Diego", "Abogado"));
+        red2.agregarVertice(new Perfil(5, "Eva", "Medica"));
+
+        red2.agregarArista(1, 2);
+        red2.agregarArista(2, 3);
+        red2.agregarArista(3, 4);
+        red2.agregarArista(1, 5);
+
+        System.out.println("Red de contactos:");
+        red2.mostrar();
+
+        System.out.println("\nGrado de Ana (contactos directos): " + red2.grado(1));
+        System.out.println("¿Ana y Bruno son contactos? " + red2.sonContactos(1, 2));
+        System.out.println("¿Ana y Carla son contactos? " + red2.sonContactos(1, 3));
+
+        System.out.println("\nGrado de separacion Ana -> Diego (esperado 3): "
+                + red2.gradoDeSeparacion(1, 4));
+        System.out.println("Grado de separacion Ana -> Ana (esperado 0): "
+                + red2.gradoDeSeparacion(1, 1));
+
+        System.out.println("\nContactos recomendados para Ana (esperado: Carla):");
+        red2.contactosRecomendados(1).mostrar();
     }
 }

@@ -7,7 +7,6 @@ public class RedProfesional {
         postulaciones = new ColaCircular<>(100);
     }
 
-    // Usuarios
     public boolean registrarUsuario(Perfil perfil) {
         return usuarios.insertar(perfil.getId(), perfil);
     }
@@ -24,7 +23,6 @@ public class RedProfesional {
         usuarios.mostrar();
     }
 
-    // Postulaciones
     public boolean agregarPostulacion(Postulacion postulacion) {
         return postulaciones.encolar(postulacion);
     }

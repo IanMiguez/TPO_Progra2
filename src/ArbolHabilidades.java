@@ -31,17 +31,34 @@ public class ArbolHabilidades {
         return null;
     }
 
-    public boolean agregarHabilidad(
-            String nombrePadre,
-            String nuevaHabilidad) {
-        NodoHabilidad padre = buscar(nombrePadre);
-        if (padre == null) {
+    public boolean agregarEnCategoria(String categoria, String habilidad) {
+        if (buscar(habilidad) != null) {
             return false;
         }
-        padre.agregarHijo(
-                new NodoHabilidad(nuevaHabilidad)
-        );
+        NodoHabilidad nodoCategoria = buscar(categoria);
+        if (nodoCategoria == null) {
+            nodoCategoria = new NodoHabilidad(categoria);
+            raiz.agregarHijo(nodoCategoria);
+        }
+        nodoCategoria.agregarHijo(new NodoHabilidad(habilidad));
         return true;
+    }
+
+    public Lista<String> obtenerHabilidadesDesde(String nombre) {
+        Lista<String> resultado = new Lista<>();
+        NodoHabilidad nodo = buscar(nombre);
+        if (nodo != null) {
+            recolectar(nodo, resultado);
+        }
+        return resultado;
+    }
+
+    private void recolectar(NodoHabilidad actual, Lista<String> acumulador) {
+        acumulador.agregar(actual.getNombre());
+        Lista<NodoHabilidad> hijos = actual.getHijos();
+        for (int i = 0; i < hijos.cantidadElementos(); i++) {
+            recolectar(hijos.obtener(i), acumulador);
+        }
     }
 
     public void mostrar() {

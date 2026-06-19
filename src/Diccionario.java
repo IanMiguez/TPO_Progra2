@@ -94,4 +94,15 @@ public class Diccionario<K, V> {
         }
     }
 
+    public Lista<V> obtenerValores() {
+
+        Lista<V> valores = new Lista<>();
+
+        for (int i = 0; i < elementos.cantidadElementos(); i++) {
+            valores.agregar(elementos.obtener(i).getValor());
+        }
+
+        return valores;
+    }
+
 }

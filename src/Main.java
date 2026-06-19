@@ -27,6 +27,8 @@ public class Main {
                 case 11: procesarPostulacion(red); break;
                 case 12: agregarHabilidad(red); break;
                 case 13: red.mostrarHabilidades(); break;
+                case 14: asignarHabilidad(red); break;
+                case 15: buscarPorEspecialidad(red); break;
                 case 0: System.out.println("Saliendo..."); break;
                 default: System.out.println("Opcion invalida.");
             }
@@ -47,8 +49,10 @@ public class Main {
         System.out.println("9.  Contactos recomendados");
         System.out.println("10. Postular a un puesto");
         System.out.println("11. Procesar siguiente postulacion");
-        System.out.println("12. Agregar habilidad");
+        System.out.println("12. Agregar habilidad (al arbol)");
         System.out.println("13. Mostrar arbol de habilidades");
+        System.out.println("14. Asignar habilidad a un usuario");
+        System.out.println("15. Buscar usuarios (por categoria o especialidad)");
         System.out.println("0.  Salir");
     }
 
@@ -162,12 +166,59 @@ public class Main {
     }
 
     private static void agregarHabilidad(RedProfesional red) {
-        String padre = leerTexto("Habilidad padre (ej: Habilidades, Tecnologia): ");
-        String nueva = leerTexto("Nueva habilidad: ");
-        if (red.agregarHabilidad(padre, nueva)) {
-            System.out.println("Habilidad agregada.");
+        String categoria = leerTexto("Categoria / area (ej: Tecnologia, Cocina): ");
+        String habilidad = leerTexto("Habilidad (ej: Java, Pasteleria): ");
+        if (red.agregarHabilidad(categoria, habilidad)) {
+            System.out.println("Habilidad agregada dentro de '" + categoria + "'.");
         } else {
-            System.out.println("No se encontro la habilidad padre '" + padre + "'.");
+            System.out.println("Esa habilidad ya existe en el arbol.");
+        }
+    }
+
+    private static void asignarHabilidad(RedProfesional red) {
+        int id = leerEntero("ID del usuario: ");
+        if (red.buscarUsuario(id) == null) {
+            System.out.println("No existe un usuario con ese ID.");
+            return;
+        }
+        String habilidad = leerTexto("Habilidad a asignar: ");
+        if (!red.existeHabilidad(habilidad)) {
+            System.out.println("Esa habilidad no existe en el arbol. Agregala primero (opcion 12).");
+            return;
+        }
+        if (red.asignarHabilidad(id, habilidad)) {
+            System.out.println("Habilidad asignada: " + red.buscarUsuario(id));
+        } else {
+            System.out.println("El usuario ya tenia esa habilidad.");
+        }
+    }
+
+    private static void buscarPorEspecialidad(RedProfesional red) {
+        System.out.println("Buscar por:");
+        System.out.println("1. Categoria / area (ej: Tecnologia)");
+        System.out.println("2. Especialidad (ej: Java)");
+        int opcion = leerEntero("Opcion: ");
+
+        switch (opcion) {
+            case 1:
+                String categoria = leerTexto("Categoria a buscar: ");
+                mostrarResultadoBusqueda(red.buscarPorCategoria(categoria), categoria);
+                break;
+            case 2:
+                String especialidad = leerTexto("Especialidad a buscar: ");
+                mostrarResultadoBusqueda(red.buscarPorEspecialidad(especialidad), especialidad);
+                break;
+            default:
+                System.out.println("Opcion invalida.");
+        }
+    }
+
+    private static void mostrarResultadoBusqueda(Lista<Perfil> encontrados, String criterio) {
+        if (encontrados.estaVacia()) {
+            System.out.println("No se encontraron usuarios para '" + criterio + "'.");
+        } else {
+            System.out.println("Usuarios encontrados para '" + criterio + "':");
+            encontrados.mostrar();
         }
     }
 
@@ -183,10 +234,13 @@ public class Main {
         red.conectarUsuarios(3, 4);
         red.conectarUsuarios(1, 5);
 
-        red.agregarHabilidad("Habilidades", "Tecnologia");
-        red.agregarHabilidad("Tecnologia", "Desarrollo");
-        red.agregarHabilidad("Desarrollo", "Java");
-        red.agregarHabilidad("Desarrollo", "Python");
+        red.agregarHabilidad("Tecnologia", "Java");
+        red.agregarHabilidad("Tecnologia", "Python");
+        red.agregarHabilidad("Cocina", "Pasteleria");
+
+        red.asignarHabilidad(1, "Java");
+        red.asignarHabilidad(2, "Java");
+        red.asignarHabilidad(3, "Python");
     }
 
     private static int leerEntero(String mensaje) {

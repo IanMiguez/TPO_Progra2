@@ -123,8 +123,8 @@ public class RedProfesional {
         return postulaciones.encolar(new Postulacion(perfil, puesto));
     }
 
-    public boolean agregarHabilidad(String habilidadPadre, String nuevaHabilidad) {
-        return arbolHabilidades.agregarHabilidad(habilidadPadre, nuevaHabilidad);
+    public boolean agregarHabilidad(String categoria, String habilidad) {
+        return arbolHabilidades.agregarEnCategoria(categoria, habilidad);
     }
 
     public boolean existeHabilidad(String nombre) {
@@ -133,5 +133,48 @@ public class RedProfesional {
 
     public void mostrarHabilidades() {
         arbolHabilidades.mostrar();
+    }
+
+    public boolean asignarHabilidad(int idPerfil, String habilidad) {
+        Perfil perfil = usuarios.buscar(idPerfil);
+        if (perfil == null) {
+            return false;
+        }
+        if (arbolHabilidades.buscar(habilidad) == null) {
+            return false;
+        }
+        return perfil.agregarHabilidad(habilidad);
+    }
+
+    public Lista<Perfil> buscarPorCategoria(String categoria) {
+        Lista<Perfil> resultado = new Lista<>();
+        Lista<String> habilidadesBuscadas = arbolHabilidades.obtenerHabilidadesDesde(categoria);
+        if (habilidadesBuscadas.estaVacia()) {
+            return resultado;
+        }
+
+        Lista<Perfil> todos = usuarios.obtenerValores();
+        for (int i = 0; i < todos.cantidadElementos(); i++) {
+            Perfil perfil = todos.obtener(i);
+            for (int j = 0; j < habilidadesBuscadas.cantidadElementos(); j++) {
+                if (perfil.tieneHabilidad(habilidadesBuscadas.obtener(j))) {
+                    resultado.agregar(perfil);
+                    break;
+                }
+            }
+        }
+        return resultado;
+    }
+
+    public Lista<Perfil> buscarPorEspecialidad(String habilidad) {
+        Lista<Perfil> resultado = new Lista<>();
+        Lista<Perfil> todos = usuarios.obtenerValores();
+        for (int i = 0; i < todos.cantidadElementos(); i++) {
+            Perfil perfil = todos.obtener(i);
+            if (perfil.tieneHabilidad(habilidad)) {
+                resultado.agregar(perfil);
+            }
+        }
+        return resultado;
     }
 }

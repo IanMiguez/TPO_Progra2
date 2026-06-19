@@ -24,18 +24,32 @@ public class RedProfesional {
         return perfil;
     }
 
-    public boolean actualizarPerfil(int id, String nuevoNombre, String nuevaProfesion) {
+    public boolean actualizarNombre(int id, String nuevoNombre) {
         Perfil perfil = usuarios.buscar(id);
         if (perfil == null) {
             return false;
         }
-        Pila<EstadoPerfil> historial = historiales.buscar(id);
-        if (historial != null) {
-            historial.apilar(new EstadoPerfil(perfil.getNombre(), perfil.getProfesion()));
-        }
+        guardarEstado(id);
         perfil.setNombre(nuevoNombre);
+        return true;
+    }
+
+    public boolean actualizarProfesion(int id, String nuevaProfesion) {
+        Perfil perfil = usuarios.buscar(id);
+        if (perfil == null) {
+            return false;
+        }
+        guardarEstado(id);
         perfil.setProfesion(nuevaProfesion);
         return true;
+    }
+
+    private void guardarEstado(int id) {
+        Perfil perfil = usuarios.buscar(id);
+        Pila<EstadoPerfil> historial = historiales.buscar(id);
+        if (perfil != null && historial != null) {
+            historial.apilar(new EstadoPerfil(perfil.getNombre(), perfil.getProfesion()));
+        }
     }
 
     public boolean deshacerCambio(int id) {

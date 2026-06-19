@@ -76,10 +76,23 @@ public class Main {
             System.out.println("No existe un usuario con ese ID.");
             return;
         }
-        String nombre = leerTexto("Nuevo nombre: ");
-        String profesion = leerTexto("Nueva profesion: ");
-        if (red.actualizarPerfil(id, nombre, profesion)) {
-            System.out.println("Perfil actualizado: " + red.buscarUsuario(id));
+
+        System.out.println("Que dato queres modificar?");
+        System.out.println("1. Nombre");
+        System.out.println("2. Profesion");
+        int opcion = leerEntero("Opcion: ");
+
+        switch (opcion) {
+            case 1:
+                red.actualizarNombre(id, leerTexto("Nuevo nombre: "));
+                System.out.println("Perfil actualizado: " + red.buscarUsuario(id));
+                break;
+            case 2:
+                red.actualizarProfesion(id, leerTexto("Nueva profesion: "));
+                System.out.println("Perfil actualizado: " + red.buscarUsuario(id));
+                break;
+            default:
+                System.out.println("Opcion invalida. No se modifico nada.");
         }
     }
 

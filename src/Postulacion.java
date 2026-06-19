@@ -1,5 +1,3 @@
-// Representa la postulacion de un perfil a un puesto de trabajo.
-// Se gestiona por orden de llegada (FIFO) usando la ColaCircular.
 public class Postulacion {
 
     private Perfil postulante;

@@ -1,7 +1,4 @@
 public class RedProfesional {
-    private static final int MAX_POSTULACIONES = 100;
-    private static final int MAX_HISTORIAL = 50;
-
     private Diccionario<Integer, Perfil> usuarios;
     private ColaCircular<Postulacion> postulaciones;
     private Grafo conexiones;
@@ -11,7 +8,7 @@ public class RedProfesional {
 
     public RedProfesional() {
         usuarios = new Diccionario<>();
-        postulaciones = new ColaCircular<>(MAX_POSTULACIONES);
+        postulaciones = new ColaCircular<>(100);
         conexiones = new Grafo();
         arbolHabilidades = new ArbolHabilidades();
         historiales = new Diccionario<>();
@@ -22,7 +19,7 @@ public class RedProfesional {
         Perfil perfil = new Perfil(proximoId, nombre, profesion);
         usuarios.insertar(perfil.getId(), perfil);
         conexiones.agregarVertice(perfil);
-        historiales.insertar(perfil.getId(), new Pila<>(MAX_HISTORIAL));
+        historiales.insertar(perfil.getId(), new Pila<>(50));
         proximoId++;
         return perfil;
     }

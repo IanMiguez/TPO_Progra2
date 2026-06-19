@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static final Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         RedProfesional red = new RedProfesional();

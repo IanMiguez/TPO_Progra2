@@ -53,6 +53,34 @@ public class ArbolHabilidades {
         return resultado;
     }
 
+    public Lista<String> obtenerCategorias() {
+
+        Lista<String> categorias = new Lista<>();
+
+        Lista<NodoHabilidad> hijos = raiz.getHijos();
+
+        for (int i = 0; i < hijos.cantidadElementos(); i++) {
+            categorias.agregar(
+                    hijos.obtener(i).getNombre()
+            );
+        }
+
+        return categorias;
+    }
+
+    public Lista<String> obtenerHabilidadesDeCategoria(String categoria) {
+        Lista<String> habilidades = new Lista<>();
+        NodoHabilidad nodoCategoria = buscar(categoria);
+        if (nodoCategoria == null) {
+            return habilidades;
+        }
+        Lista<NodoHabilidad> hijos = nodoCategoria.getHijos();
+        for (int i = 0; i < hijos.cantidadElementos(); i++) {
+            habilidades.agregar(hijos.obtener(i).getNombre());
+        }
+        return habilidades;
+    }
+
     private void recolectar(NodoHabilidad actual, Lista<String> acumulador) {
         acumulador.agregar(actual.getNombre());
         Lista<NodoHabilidad> hijos = actual.getHijos();

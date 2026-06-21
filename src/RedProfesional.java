@@ -123,6 +123,14 @@ public class RedProfesional {
         return postulaciones.encolar(new Postulacion(perfil, puesto));
     }
 
+    public Lista<String> obtenerCategorias() {
+        return arbolHabilidades.obtenerCategorias();
+    }
+
+    public Lista<String> obtenerHabilidadesDeCategoria(String categoria) {
+        return arbolHabilidades.obtenerHabilidadesDeCategoria(categoria);
+    }
+
     public boolean agregarHabilidad(String categoria, String habilidad) {
         return arbolHabilidades.agregarEnCategoria(categoria, habilidad);
     }

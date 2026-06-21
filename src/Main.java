@@ -201,12 +201,54 @@ public class Main {
 
         switch (opcion) {
             case 1:
-                String categoria = leerTexto("Categoria a buscar: ");
+                Lista<String> categorias = red.obtenerCategorias();
+                System.out.println("Categorias disponibles:");
+                for (int i = 0; i < categorias.cantidadElementos(); i++) {
+                    System.out.println((i + 1) + ". " + categorias.obtener(i));
+                }
+                int opcionCategoria = leerEntero("Seleccione una categoria: ");
+                if (opcionCategoria < 1 ||
+                        opcionCategoria > categorias.cantidadElementos()) {
+                    System.out.println("Opcion invalida.");
+                    return;
+                }
+                String categoria = categorias.obtener(opcionCategoria - 1);
                 mostrarResultadoBusqueda(red.buscarPorCategoria(categoria), categoria);
                 break;
+
             case 2:
-                String especialidad = leerTexto("Especialidad a buscar: ");
-                mostrarResultadoBusqueda(red.buscarPorEspecialidad(especialidad), especialidad);
+                Lista<String> categorias2 = red.obtenerCategorias();
+                System.out.println("Categorias disponibles:");
+                for (int i = 0; i < categorias2.cantidadElementos(); i++) {
+                    System.out.println((i + 1) + ". " + categorias2.obtener(i));
+                }
+                int opcionCategoria2 = leerEntero("Seleccione una categoria: ");
+                if (opcionCategoria2 < 1 || opcionCategoria2 > categorias2.cantidadElementos()) {
+
+                    System.out.println("Opcion invalida.");
+                    return;
+                }
+
+                String categoriaSeleccionada = categorias2.obtener(opcionCategoria2 - 1);
+
+                Lista<String> habilidades = red.obtenerHabilidadesDeCategoria(categoriaSeleccionada);
+
+                System.out.println("Especialidades disponibles:");
+
+                for (int i = 0; i < habilidades.cantidadElementos(); i++) {
+
+                    System.out.println((i + 1) + ". " + habilidades.obtener(i));
+                }
+
+                int opcionHabilidad = leerEntero("Seleccione una especialidad: ");
+                if (opcionHabilidad < 1 || opcionHabilidad > habilidades.cantidadElementos()) {
+                    System.out.println("Opcion invalida.");
+                    return;
+                }
+
+                String habilidadSeleccionada = habilidades.obtener(opcionHabilidad - 1);
+
+                mostrarResultadoBusqueda(red.buscarPorEspecialidad(habilidadSeleccionada), habilidadSeleccionada);
                 break;
             default:
                 System.out.println("Opcion invalida.");
@@ -245,12 +287,14 @@ public class Main {
 
     private static int leerEntero(String mensaje) {
         System.out.print(mensaje);
-        String linea = sc.nextLine();
-        try {
-            return Integer.parseInt(linea.trim());
-        } catch (NumberFormatException e) {
-            return -1;
+        String texto = sc.nextLine();
+        for (int i = 0; i < texto.length(); i++) {
+            char c = texto.charAt(i);
+            if (!Character.isDigit(c)) {
+                return -1;
+            }
         }
+        return Integer.parseInt(texto);
     }
 
     private static String leerTexto(String mensaje) {

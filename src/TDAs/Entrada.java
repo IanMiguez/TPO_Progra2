@@ -1,3 +1,5 @@
+package TDAs;
+
 public class Entrada<K,V> {
 
     private K clave;

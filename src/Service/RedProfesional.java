@@ -1,3 +1,10 @@
+package Service;
+
+import TDAs.*;
+import models.EstadoPerfil;
+import models.Perfil;
+import models.Postulacion;
+
 public class RedProfesional {
     private Diccionario<Integer, Perfil> usuarios;
     private ColaCircular<Postulacion> postulaciones;

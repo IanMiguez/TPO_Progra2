@@ -1,3 +1,5 @@
+package TDAs;
+
 public class Diccionario<K, V> {
 
     private Lista<Entrada<K, V>> elementos;
@@ -88,7 +90,7 @@ public class Diccionario<K, V> {
     public void mostrar() {
 
         if (estaVacio()) {
-            System.out.println("Diccionario vacio");
+            System.out.println("TDAs.Diccionario vacio");
         } else {
             elementos.mostrar();
         }

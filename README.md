@@ -8,15 +8,15 @@
 - A) Ecosistema de Red Social Profesional
 
 ## Estructura de Datos:
-- Diccionario (sobre lista enlazada de pares clave-valor)
-- Lista enlazada simple
-- Pila (LIFO, arreglo)
+- TDAs.Diccionario (sobre lista enlazada de pares clave-valor)
+- TDAs.Lista enlazada simple
+- TDAs.Pila (LIFO, arreglo)
 - Cola Circular (FIFO, arreglo)
 
 ## Funcionalidades Implementadas en esta Segunda Etapa:
-- Identificación de perfil por ID con Diccionario
+- Identificación de perfil por ID con TDAs.Diccionario
 - Gestión de postulaciones por orden de llegada con Cola Circular
-- Deshacer la última actualización del perfil con Pila
+- Deshacer la última actualización del perfil con TDAs.Pila
 - Metodos de Gestion de Usuarios
 
 ## Link del Repositorio:
@@ -31,9 +31,9 @@
 
 ## Actividades Realizadas por cada Integrante:
 ### - Ian Miguez:
-    - Clases: Perfil, Estado Perfil, Lista, Diccionario.
-    - RedProfesional: Métodos de Gestión de Usuarios
+    - Clases: models.Perfil, Estado models.Perfil, TDAs.Lista, TDAs.Diccionario.
+    - Service.RedProfesional: Métodos de Gestión de Usuarios
 
 ### - Maximo Zaragoza:
-    - Clases: Nodo, Cola Circular, Pila, Main, Casos de Prueba.
-    - RedProfesional: 
+    - Clases: TDAs.Nodo, Cola Circular, TDAs.Pila, Service.Main, Casos de Prueba.
+    - Service.RedProfesional: 

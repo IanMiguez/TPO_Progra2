@@ -1,3 +1,9 @@
+package Service;
+
+import TDAs.Lista;
+import models.Perfil;
+import models.Postulacion;
+
 import java.util.Scanner;
 
 public class Main {
@@ -89,11 +95,11 @@ public class Main {
         switch (opcion) {
             case 1:
                 red.actualizarNombre(id, leerTexto("Nuevo nombre: "));
-                System.out.println("Perfil actualizado: " + red.buscarUsuario(id));
+                System.out.println("models.Perfil actualizado: " + red.buscarUsuario(id));
                 break;
             case 2:
                 red.actualizarProfesion(id, leerTexto("Nueva profesion: "));
-                System.out.println("Perfil actualizado: " + red.buscarUsuario(id));
+                System.out.println("models.Perfil actualizado: " + red.buscarUsuario(id));
                 break;
             default:
                 System.out.println("Opcion invalida. No se modifico nada.");
@@ -149,7 +155,7 @@ public class Main {
         }
         String puesto = leerTexto("Puesto: ");
         if (red.postular(id, puesto)) {
-            System.out.println("Postulacion registrada.");
+            System.out.println("models.Postulacion registrada.");
         } else {
             System.out.println("No se pudo registrar (cola llena).");
         }

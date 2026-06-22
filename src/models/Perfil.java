@@ -1,3 +1,7 @@
+package models;
+
+import TDAs.Lista;
+
 public class Perfil {
 
     private int id;
@@ -67,7 +71,7 @@ public class Perfil {
 
     @Override
     public String toString() {
-        return "Perfil{" +
+        return "models.Perfil{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", profesion='" + profesion + '\'' +

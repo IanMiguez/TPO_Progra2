@@ -1,3 +1,4 @@
+package models;
 
 public class Postulacion {
 
@@ -23,7 +24,7 @@ public class Postulacion {
 
     @Override
     public String toString() {
-        return "Postulacion{" +
+        return "models.Postulacion{" +
                 "postulante=" + postulante.getNombre() +
                 ", puesto='" + puesto + '\'' +
                 '}';

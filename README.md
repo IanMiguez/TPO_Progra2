@@ -22,7 +22,7 @@
 - Metodos de Gestion de Usuarios
 - Red de contactos: conexión entre usuarios, grado de separación (BFS) y contactos recomendados (vínculos en común) (Grafo)
 
-##Cómo compilar, ejecutar y probar
+## Cómo compilar, ejecutar y probar
 Requisitos: tener instalado el JDK (Java) e IntelliJ IDEA.
 
 - Abrir el proyecto en IntelliJ IDEA.

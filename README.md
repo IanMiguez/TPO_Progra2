@@ -15,12 +15,13 @@
 - Árbol n-ario
 - Grafo (lista de adyacencia, no dirigido)
 
-## Funcionalidades Implementadas en esta Segunda Etapa:
+## Funcionalidades Implementadas en Segunda Etapa:
 - Identificación de perfil por ID con TDAs.Diccionario
 - Gestión de postulaciones por orden de llegada con Cola Circular
 - Deshacer la última actualización del perfil con TDAs.Pila
 - Metodos de Gestion de Usuarios
 - Red de contactos: conexión entre usuarios, grado de separación (BFS) y contactos recomendados (vínculos en común) (Grafo)
+- Jerarquía de habilidades: alta por categoría, asignación a usuarios y búsqueda por categoría/especialidad (Árbol n-ario)
 
 ## Cómo compilar, ejecutar y probar
 Requisitos: tener instalado el JDK (Java) e IntelliJ IDEA.
@@ -35,11 +36,13 @@ Requisitos: tener instalado el JDK (Java) e IntelliJ IDEA.
 
 
 ## Organización del proyecto:
+```
 src/
 ├── TDAs/      Estructuras de datos hechas a mano (Diccionario, Lista, Pila,
 │              ColaCircular, Grafo, ArbolHabilidades + nodos auxiliares)
 ├── models/    Entidades del dominio (Perfil, Postulacion, EstadoPerfil)
 └── Service/   RedProfesional (fachada de los 5 TDAs) y Main (menú por consola)
+```
 
 ## Link del Repositorio:
 - https://github.com/IanMiguez/TPO_Progra2

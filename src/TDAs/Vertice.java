@@ -1,5 +1,7 @@
 package TDAs;
 
+import models.Perfil;
+
 public class Vertice {
 
     private Perfil perfil;

@@ -24,7 +24,7 @@ public class Postulacion {
 
     @Override
     public String toString() {
-        return "models.Postulacion{" +
+        return "Postulacion{" +
                 "postulante=" + postulante.getNombre() +
                 ", puesto='" + puesto + '\'' +
                 '}';

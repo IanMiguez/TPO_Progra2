@@ -71,7 +71,7 @@ public class Perfil {
 
     @Override
     public String toString() {
-        return "models.Perfil{" +
+        return "Perfil{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", profesion='" + profesion + '\'' +
